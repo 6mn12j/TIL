@@ -103,11 +103,15 @@ button {
 
 .title {
   display: flex;
+  justify-content: space-between;
 }
 
 .title .title__text {
   margin-right: 5px;
   margin-bottom: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .date p {
@@ -184,6 +188,7 @@ button {
 
 .next .next__item a {
   display: flex;
+  position: relative;
 }
 
 .next__item {
@@ -215,4 +220,23 @@ button {
 
 .next__item-sub p {
   font-weight: bold;
+}
+
+.next__item button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@media screen and (min-width: 1014px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .content .content__desc {
+    width: 50%;
+  }
+  .content .next {
+    padding: 0 20px;
+  }
 }
