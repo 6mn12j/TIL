@@ -1,0 +1,15 @@
+class Stack {
+  constructor() {
+    this._arr = [];
+  }
+  push(item) {
+    return this._arr.push(item);
+  }
+  pop() {
+    return this._arr.pop();
+  }
+  peek() {
+    return this._arr[this._arr.length - 1];
+  }
+}
+const stack = new Stack();
