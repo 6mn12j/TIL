@@ -38,7 +38,7 @@ function solution() {
   };
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < m; j++) {
-      if (board[j][i] === 1 && chk[j][i] === 0) {
+      if (board[i][j] === 1 && chk[i][j] === 0) {
         maxWidth = bfs(j, i);
         cnt++;
       }
