@@ -38,16 +38,20 @@ function read() {
     .toString()
     .trim()
     .split('\n');
-  let cnt = input.shift();
-  let map;
+
+  let cnt = input.shift() * 1;
   while (cnt--) {
-    const [m, n, num] = input.shift().split(' ');
+    let index = 0;
+    let map;
+    const [m, n, num] = input[index++].split(' ');
     map = Array.from(Array(Number(n)), () => new Array(Number(m)).fill(0));
     for (let i = 0; i < num; i++) {
-      map[input[i].split(' ')[1] * 1][input[i].split(' ')[0] * 1] = 1;
+      map[input[i + index].split(' ')[1] * 1][
+        input[i + index].split(' ')[0] * 1
+      ] = 1;
     }
     solution(map, n, m);
-    input.splice(0, Number(num));
+    input.splice(0, Number(num) + index);
   }
 }
 
