@@ -1,35 +1,36 @@
+class Node {
+  constructor(data, prev = null, next = null) {
+    this.data = data;
+    this.prev = prev;
+    this.next = next;
+  }
+}
+
 class Queue {
   constructor() {
-    this.queue = {};
-    this.front = 0;
-    this.rear = 0;
+    this.head = new Node(-1);
+    this.tail = new Node(-1);
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+    this.size = 0;
   }
-  size() {
-    if (this.queue[rear] === undefined) return 0;
-    else return this.rear - this.front + 1;
+  enQueue(data) {
+    let node = new Node(data);
+    node.next = this.tail;
+    node.prev = this.tail.prev;
+    this.tail.prev.next = node;
+    this.tail.prev = node;
+    this.size++;
   }
-  push(data) {
-    if (this.size() === 0) this.queue['0'] = data;
-    else {
-      this.queue[this.rear] = data;
-      this.rear + 1;
-    }
+  deQueue() {
+    if (this.ifEmpty()) return -1;
+    let tmp = this.head.next;
+    tmp.next.prev = this.head;
+    this.head.next = tmp.next;
+    this.size--;
+    return tmp.data;
   }
-  popLeft() {
-    let temp;
-    if (this.rear == this.front) {
-      temp = this.queue[this.front];
-      delete this.queue[this.front];
-      this.front = 0;
-      this.rear = 0;
-    } else {
-      temp = this.queue[this.front];
-      delete this.queue[this.front];
-      this.front++;
-    }
-    return temp;
-  }
-  peak() {
-    return this.queue[this.front];
+  ifEmpty() {
+    return this.size ? false : true;
   }
 }
