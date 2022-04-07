@@ -2,4 +2,4 @@ nodemodule
 yarn*
 .yarn*
 package.json
-
+.DS_Store

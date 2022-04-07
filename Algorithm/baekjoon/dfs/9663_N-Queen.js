@@ -1,3 +1,9 @@
+/*
+	dfs() -> y좌표를 확인
+	dfs 내부에서는 x좌표를 확인
+
+*/
+
 let N = require('fs').readFileSync('./9663.txt').toString().trim();
 let answer = 0;
 let v1 = new Array(parseInt(N)).fill(0); //x
