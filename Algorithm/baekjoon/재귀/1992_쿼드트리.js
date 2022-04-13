@@ -1,11 +1,5 @@
-let input = require('fs')
-  .readFileSync('./1992.txt')
-  .toString()
-  .trim()
-  .split('\n');
-const N = input.shift();
-const map = input.map((line) => line.split('').map((c) => parseInt(c)));
-
+let N;
+let map;
 let answer = '';
 
 const recursive = (n, y, x) => {
@@ -30,4 +24,14 @@ const solution = (N) => {
   console.log(answer);
 };
 
-solution(N, map);
+const read = () => {
+  let input = require('fs')
+    .readFileSync('./1992.txt')
+    .toString()
+    .trim()
+    .split('\n');
+  N = input.shift();
+  map = input.map((line) => line.split('').map((c) => parseInt(c)));
+  solution(N, map);
+};
+read();
