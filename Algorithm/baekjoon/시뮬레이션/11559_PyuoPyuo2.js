@@ -46,6 +46,24 @@ const handleBoard = () => {
     }
   }
 };
+const handleBoard2 = () => {
+  const N = 12;
+  const M = 6;
+  for (let col = 0; col < 12; col++) {
+    let temp = Array(12);
+    for (let row = 0; row < 12; row++) {
+      temp[row] = board[row][col];
+    }
+    temp = temp.filter((x) => x !== '.').reverse();
+    while (temp.length < N) {
+      temp.push('.');
+    }
+
+    for (let row = 0; row < N; row++) {
+      board[row][col] = temp[N - row - 1];
+    }
+  }
+};
 
 const bfs = (y, x) => {
   let queue = [];
@@ -71,7 +89,7 @@ const bfs = (y, x) => {
   }
   if (queue.length >= 4) {
     handleBomb(queue);
-    handleBoard();
+    handleBoard2();
     return queue.length;
   } else return 0;
 };
