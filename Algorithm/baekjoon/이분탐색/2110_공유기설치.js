@@ -35,8 +35,7 @@ const solution = (c, arr) => {
   let end = arr[arr.length - 1];
 
   while (start < end) {
-    let mid = Math.floor((start + end + 1) / 2);
-
+    let mid = Math.ceil((start + end) / 2);
     if (getCnt(c, mid, arr)) {
       start = mid;
     } else end = mid - 1;
